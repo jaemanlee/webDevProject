@@ -37,6 +37,7 @@
     }).addTo(map);
     
      map.on('click', function(e){
+       map.on('click', function(e){
     	var latlng = e.latlng.lng + ' ' + e.latlng.lat
     	var filter = 'point(' + e.latlng.lng + ' ' + e.latlng.lat + ')';
     	 var url ="http://api.vworld.kr/req/data?service=data&request=GetFeature&data=LP_PA_CBND_BUBUN&VERSION=1.1.0&MAXFEATURES=40&SRSNAME=EPSG:4326&OUTPUT=text/javascript&EXCEPTIONS=text/javascript&KEY=EB040197-716C-3E73-BF0C-C5A4D10B8063&DOMAIN=http://localhost:8080/home.jsp&geomFilter="+filter;

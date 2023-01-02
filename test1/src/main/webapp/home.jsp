@@ -47,6 +47,7 @@
             jsonpCallback:"parseResponse",
             success : function(response){
                console.log(response);
+               console.log('aaa');
             }
         }) 
     	

@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+html {
+	width : 100%;
+	height : 100%;
+	overflow : hidden;
+	
+}
+
+body {
+	width : 100%;
+	height : 100%;
+}
+
+body .container {
+	height : 100%;
+	display: flex;
+}
+
+a {
+ text-decoration: none;	
+ color : #000000;
+	
+}
+
+body button {
+	cursor : pointer;
+	
+}
+
+li {
+	list-style : none;
+	
+}
+
+.left_container {
+	width: 60%;
+	height : 100%;
+	background: url("/resources/image/lmg_01.jpg") no-repeat center 340px;
+	background-size: 70%;
+}
+
+.right_container {
+	width: 40%;
+	height : 100%;
+}
+
+.right_container .wrap_login {
+	margin-top : 300px;
+	border: 1px solid;
+	width: 81%;
+	height: 35%;
+	border-radius: 15px;
+}
+
+.wrap_login {
+	
+}
+
+.wrap_login ul {
+  margin-top : 100px;	
+	
+}
+
+.wrap_login ul > li {
+  margin-bottom : 10px;
+  display: table;
+  border: 1px solid;
+  width: 90%;
+  height: 40px;
+}
+
+.wrap_login ul>li>input {
+	height: 67%;
+	width: 98%;
+	border: none;
+	background: #e8f0fe;
+	margin-top: 6px;
+	font-size: 16px;
+}
+
+.wrap_login ul>li>span:nth-child(3){
+	background: url("/resources/image/x_icon.png") no-repeat 10px;
+	background-size: 11px;
+	width: 30px;
+	display: table-cell;
+}
+
+.wrap_login ul>li:nth-child(1)>span:nth-child(1){
+	background: url("/resources/image/id_icon.png") no-repeat 6px;
+	background-size: 16px;
+	width: 30px;
+	display: table-cell;
+}
+
+
+.wrap_login ul>li:nth-child(2)>span:nth-child(1) {
+	background : url("/resources/image/password_icon.png") no-repeat 6px;
+	background-size: 16px;
+	width: 30px;
+	display: table-cell;
+}
+
+
+
+.login_input ul {
+	display : flex;
+	margin : 0;
+	width: 82%;
+}
+
+.login_input ul>li {
+	
+	border : none;
+	width : 90%;
+}
+
+.login_input ul>li:nth-child(1) {
+	
+	margin-right : 16px;
+}
+
+.login_input ul>li>div  {
+	width : 100%;
+	height : 30px;
+	background: transparent;
+	border-radius: 20px;
+	border: 1px solid;
+	font-weight: bold;
+	font-size : 22px;
+	text-align : center;
+}
+
+.login_input ul>li>button:hover {
+	 background : #000000;
+	 color : #ffffff;
+	
+}
+
+.popup {
+	width : 100%;
+}
+
+.popup table {
+	width : 100%;
+	height : 95%;
+	
+}
+
+.popup table>tbody>tr {
+	height : 40px;
+	
+}
+
+.popup table>tbody>tr>th {
+	width : 200px;
+	background : #5a5858;
+}
+
+.popup table>tbody>tr:not(:first-child)>td>div {
+	
+	height : 100%;
+	border-bottom : 1px solid #0000006e !important;
+	border-top : 0 !important;
+}
+
+.popup table>tbody>tr>td>div:nth-child(1) {
+	
+	border-top : 1px solid;
+	height : 100%;
+	border-bottom : 1px solid #0000006e;
+}
+
+.popup table>tbody>tr>td>div:nth-child(n) >input {
+	
+	margin-top : 7px;
+}
+
+.popup table>tbody>tr>td>div:nth-child(n) >form >input{
+	
+	margin-top : 7px;
+}
+
+.popup table>tbody>tr>td>div:nth-child(n) > button {
+	background: url("/resources/image/icon_01.png") 3px no-repeat;
+	width: 25px;
+	height: 20px;
+	background-size: 15px;
+	padding-bottom: 3px;
+}
+
+.popup div>ul{
+	display : flex;
+	place-content : center;
+	
+}
+
+.popup div>ul>li{
+	margin-right : 60px;
+	width : 130px;
+	
+}
+
+.popup div>ul>li>div{
+	width : 100%;
+	height : 30px;
+	background: transparent;
+	border-radius: 20px;
+	border: 1px solid;
+	font-weight: bold;
+	font-size : 20px;
+	text-align : center;
+	
+}
+
+
+.address_popUp {
+	width : 100%;
+	height : 100%;
+	
+}
+
+.address_popUp .address_head {
+	display : flex;
+	justify-content : center;
+	margin-top : 30px;
+	height : 100px;
+}
+
+.address_popUp .address_head .address_span {
+	width : 50px;
+	border : 1px solid;
+	text-align : center;
+	margin-right : 10px;
+	height : 25px;
+	font-weight: bold;
+}
+
+.address_popUp .address_head >input {
+	height :22px;
+	width : 300px;
+}
+
+.address_popUp .address_head button {
+	width : 30px;
+	height : 28px;
+	background : url("/resources/image/icon_01.png") 2px no-repeat #ffffff;
+	background-size : 20px;
+	
+}

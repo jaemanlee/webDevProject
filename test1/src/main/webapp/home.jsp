@@ -36,7 +36,6 @@
       maxZoom: 19
     }).addTo(map);
       
-      map.on('click', function(e){
        map.on('click', function(e){
     	var latlng = e.latlng.lng + ' ' + e.latlng.lat
     	var filter = 'point(' + e.latlng.lng + ' ' + e.latlng.lat + ')';

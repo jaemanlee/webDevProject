@@ -8,10 +8,10 @@
 		<typeAlias alias="boardVO"
 			type="com.lee.test1.vo.boardVO" />
 	</typeAliases> --> 
-	<typeAliases>
+	<!-- <typeAliases>
 		<typeAlias alias="loginDVO"
 			type="com.lee.test1.login.dvo.loginDVO" />
-	</typeAliases>
+	</typeAliases> -->
 
 
 </configuration>

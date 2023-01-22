@@ -22,6 +22,7 @@
 		$(function(){
 
 			 location.href="/home/redriect.do";  
+			 <%--lde1245에서 커밋--%>
 
 		})
 		

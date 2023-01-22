@@ -21,8 +21,8 @@
     <script>
 		$(function(){
 
-			 location.href="/home/redriect.do";  
-			 <%--lde1245에서 커밋--%>
+			  location.href="/home/redriect.do";  
+			 <%--woaks143에서 커밋--%>
 
 		})
 		

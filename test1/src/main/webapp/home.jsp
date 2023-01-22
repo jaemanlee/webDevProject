@@ -20,7 +20,7 @@
   <body>
     <script>
 		$(function(){
-			 location.href="/home/redriect.do"; 
+			 location.href="/home/redriect.do";  
 		})
 		
     </script>           

@@ -1,4 +1,4 @@
-package com.lee.test1;
+package com;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -22,9 +23,8 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/temp.do", method = RequestMethod.POST)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@RequestMapping(value = "/redriect.do")
+	public String reDriect() {
 		
 		return "/main/main";
 	}

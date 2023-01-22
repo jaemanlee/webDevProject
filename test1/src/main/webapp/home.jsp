@@ -25,17 +25,11 @@
     </style>
   </head>
   <body>
-	<form id="temp" name="temp" action="/redirect.do" method="GET">
-		<button onclick="javascript:fnTemp();">클릭</button>
-	</form>
     <script>
 		$(function(){
-			/* location.href="/redirect.do"; */
+			 location.href="/home/redriect.do"; 
 		})
 		
-		fnTemp  = function() {
-			$('#temp').submit();
-		}
     </script>           
   </body>
 </html>

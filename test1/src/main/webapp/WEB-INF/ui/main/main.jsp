@@ -25,9 +25,12 @@
     </style>
   </head>
   <body>
-     <div id="map" style="height:1000px;"></div>
+  	<div id="divSearch">
+  		<input id="searchInput">
+  		<button onclick="javascript:fnSearch();"></button>
+  	</div>
     <script>
-    var map;
+   /*  var map;
     map = L.map('map').setView([37.4979462, 127.025427], 17);
     map.attributionControl.setPrefix('');
     var layer = new L.TileLayer('http://xdworld.vworld.kr:8080/2d/Base/201411/{z}/{x}/{y}.png', {
@@ -50,8 +53,20 @@
             }
         }) 
     	
-    })
-
+    }) */
+    fnSearch = function() {
+    	   console.log($('#searchInput').val());
+    	   var url = 'http://api.vworld.kr/req/address?service=address&request=getcoord&version=2.0&crs=epsg:4326&address='+$('#searchInput').val()+'refine=true&simple=false&OUTPUT=text/javascript&EXCEPTIONS=text/javascript&type=road&key=BCC43AEA-6121-3B95-9492-77AB9A231DE8';
+    	   var ajax = $.ajax({
+               url : url,
+               dataType : 'jsonp',
+               async : false,
+               jsonpCallback:"parseResponse",
+               success : function(response){
+                  console.log(response);
+               }
+           }) 
+    }
     </script>           
   </body>
 </html>

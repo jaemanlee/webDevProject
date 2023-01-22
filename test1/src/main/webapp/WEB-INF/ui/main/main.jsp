@@ -25,10 +25,7 @@
     </style>
   </head>
   <body>
-  	<div id="divSearch">
-  		<input id="searchInput">
-  		<button onclick="javascript:fnSearch();"></button>
-  	</div>
+  	<jsp:include page="/WEB-INF/ui/main/mainHead.jsp"/>
     <script>
    /*  var map;
     map = L.map('map').setView([37.4979462, 127.025427], 17);

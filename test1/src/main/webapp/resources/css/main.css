@@ -253,7 +253,7 @@ li {
 
 .mainHeder {
 	position: absolute;
-	width: 2113px;
+	width: 1898px;
 	height: 42px;
 	display: flex;
 	border: 1px solid;
@@ -272,7 +272,7 @@ li {
 
 .mainHeder form>div {
     position: relative;
-    left: 1585px;
+    left: 1350px;
     top: 9px;
     display: flex;
 }

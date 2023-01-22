@@ -10,6 +10,7 @@ html {
 body {
 	width : 100%;
 	height : 100%;
+	overflow : auto;
 }
 
 body .container {
@@ -252,15 +253,26 @@ li {
 
 .mainHeder {
 	position: absolute;
-    width: 100%;
-    height: 100px;
-    border: 1px solid;
-    display: flex;
+	width: 2113px;
+	height: 42px;
+	display: flex;
+	border: 1px solid;
+	background: #000;
+}
+
+.mainHeder span{
+	color:#fff;
+	font-size : 18px;
+}
+.mainHeder b {
+	font-size: 24px;
+    text-decoration: underline;
+    margin-left: 3px;
 }
 
 .mainHeder form>div {
     position: relative;
-    left: 1600px;
+    left: 1585px;
     top: 9px;
     display: flex;
 }
@@ -284,5 +296,6 @@ li {
 
 .mainHeder form>div>a:last-child {
     width: 73px;
+    margin-left: 6px;
 } 
 

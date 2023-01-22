@@ -29,7 +29,7 @@ public class loginController {
 		System.out.println("id:" + request.getParameter("id"));
 		System.out.println("pw:" + request.getParameter("passwd"));
 		
-		service.userLogin(request);
+		service.userLogin(request.getParameter("id"));
 		
 		return "";
 	}

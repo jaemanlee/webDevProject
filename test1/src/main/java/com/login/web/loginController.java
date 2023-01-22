@@ -29,7 +29,8 @@ public class loginController {
 		System.out.println("id:" + request.getParameter("id"));
 		System.out.println("pw:" + request.getParameter("passwd"));
 		
-		service.userLogin(request.getParameter("id"));
+		String result = service.userLogin(request.getParameter("id"));
+		System.out.println(result);
 		
 		return "";
 	}

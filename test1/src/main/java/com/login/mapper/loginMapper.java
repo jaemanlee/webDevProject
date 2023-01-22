@@ -1,5 +1,7 @@
 package com.login.mapper;
 
-public class loginMapper {
+public interface loginMapper {
+	
+	public String selectUserLogin(String param);
 
 }

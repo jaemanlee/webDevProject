@@ -19,6 +19,10 @@
   				<a href="javascript:ajaxLogin()">로그인</a>
   				<a>회원가입</a>
   			</div>
+  			<div>
+  				<span>이재만</span>
+  				<a href="javascript:void(null)">로그아웃</a>
+  			</div>
   		</form>
   	</div>
     <script>

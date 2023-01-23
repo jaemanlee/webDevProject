@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.login.dvo.loginDVO;
 import com.login.service.loginService;
 
 @Controller
@@ -24,14 +25,13 @@ public class loginController {
 	
 	@PostMapping("/doLogin")
 	@ResponseBody
-	public String userLogin(HttpServletRequest request, Model model, HttpSession session) throws Exception {
+	public String userLogin(HttpServletRequest request, Model model, HttpSession session, loginDVO dvo) throws Exception {
 		System.out.println("aaaa");
 		System.out.println("id:" + request.getParameter("id"));
 		System.out.println("pw:" + request.getParameter("passwd"));
 		
 		String result = service.userLogin(request.getParameter("id"));
 		System.out.println(result);
-		
 		return "";
 	}
 

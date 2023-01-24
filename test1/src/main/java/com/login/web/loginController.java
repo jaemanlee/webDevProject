@@ -31,12 +31,10 @@ public class loginController {
 		System.out.println("aaaa : "+dvo.getId());
 		System.out.println("bbbb : "+dvo.getPasswd());
 		loginDVO result = service.userLogin(dvo);
-		if(!result.getUserName().equals("")) {
+		if(result != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", result.getId());
 			session.setAttribute("name", result.getUserName());
-			System.out.println(session.getAttribute("id"));
-			System.out.println(session.getAttribute("name"));
 		}
 		System.out.println(result);
 		return result;
@@ -46,8 +44,8 @@ public class loginController {
 	@ResponseBody
 	public void userLogout(HttpServletRequest request,  @RequestBody loginDVO dvo) throws Exception {
 		HttpSession session = request.getSession();
-		System.out.println("aaaa : "+session.getAttribute("id"));
-		System.out.println("bbbb : "+session.getAttribute("id"));
+		session.removeAttribute("id");
+		session.removeAttribute("name");
 	}
 
 }

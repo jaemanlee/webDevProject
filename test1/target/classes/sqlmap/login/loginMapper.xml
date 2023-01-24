@@ -3,9 +3,9 @@
 
 <mapper namespace="com.login.mapper.loginMapper">
 	<select id="selectUserLogin" parameterType="com.login.dvo.loginDVO" resultType ="com.login.dvo.loginDVO">
-		SELECT USER_NAME
-		FROM CMP_USER_INFO
-		WHERE 1=1
+		 SELECT USER_NAME, ID
+		 FROM CMP_USER_INFO
+		 WHERE 1=1
 		<if test='id != null  and id!=""'>
 		  AND ID = #{id}
  		</if>

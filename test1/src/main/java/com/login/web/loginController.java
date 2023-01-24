@@ -27,12 +27,27 @@ public class loginController {
 	
 	@PostMapping("/doLogin")
 	@ResponseBody
-	public loginDVO userLogin(@RequestBody loginDVO dvo) throws Exception {
+	public loginDVO userLogin(HttpServletRequest request,  @RequestBody loginDVO dvo) throws Exception {
 		System.out.println("aaaa : "+dvo.getId());
 		System.out.println("bbbb : "+dvo.getPasswd());
 		loginDVO result = service.userLogin(dvo);
+		if(!result.getUserName().equals("")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("id", result.getId());
+			session.setAttribute("name", result.getUserName());
+			System.out.println(session.getAttribute("id"));
+			System.out.println(session.getAttribute("name"));
+		}
 		System.out.println(result);
 		return result;
+	}
+	
+	@PostMapping("/doLogout")
+	@ResponseBody
+	public void userLogout(HttpServletRequest request,  @RequestBody loginDVO dvo) throws Exception {
+		HttpSession session = request.getSession();
+		System.out.println("aaaa : "+session.getAttribute("id"));
+		System.out.println("bbbb : "+session.getAttribute("id"));
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,16 +24,15 @@ public class loginController {
 	@Autowired
 	private loginService service;
 	
+	
 	@PostMapping("/doLogin")
 	@ResponseBody
-	public String userLogin(HttpServletRequest request, Model model, HttpSession session, loginDVO dvo) throws Exception {
-		System.out.println("aaaa");
-		System.out.println("id:" + request.getParameter("id"));
-		System.out.println("pw:" + request.getParameter("passwd"));
-		
-		String result = service.userLogin(request.getParameter("id"));
+	public loginDVO userLogin(@RequestBody loginDVO dvo) throws Exception {
+		System.out.println("aaaa : "+dvo.getId());
+		System.out.println("bbbb : "+dvo.getPasswd());
+		loginDVO result = service.userLogin(dvo);
 		System.out.println(result);
-		return "";
+		return result;
 	}
 
 }

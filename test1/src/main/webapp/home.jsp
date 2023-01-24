@@ -22,7 +22,7 @@
 		$(function(){
 
 			  location.href="/home/redriect.do";  
-			 <%--woaks143에서 커밋--%>
+			  <%--woaks143에서 커밋--%>
 
 		})
 		

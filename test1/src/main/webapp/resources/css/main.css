@@ -252,7 +252,7 @@ li {
 
 
 .mainHeder {
-	position: absolute;
+	position: relative;
 	width: 1898px;
 	height: 42px;
 	display: flex;
@@ -262,7 +262,7 @@ li {
 
 .mainHeder span{
 	color:#fff;
-	font-size : 18px;
+	font-size : 15px;
 }
 .mainHeder b {
 	font-size: 24px;
@@ -275,6 +275,10 @@ li {
     left: 1350px;
     top: 9px;
     display: flex;
+}
+
+.mainHeder form>div:nth-child(2) {
+	left: 1500px;
 }
 
 .mainHeder form>div input {
@@ -299,3 +303,9 @@ li {
     margin-left: 6px;
 } 
 
+.mainHeder p{
+	font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0px;
+}

@@ -29,7 +29,6 @@ var gfnAjaxStatus= (url,data,callback) => {
 		headers : {
 			"X-HTTP-Method-Override" : "POST"
 		},
-		dataType: "json",
 		contentType:"application/json;charset=UTF-8",
 		url:url,
 		data : JSON.stringify(data),

@@ -1,7 +1,9 @@
 package com.login.mapper;
 
+import com.login.dvo.loginDVO;
+
 public interface loginMapper {
 	
-	public String selectUserLogin(String param);
+	public loginDVO selectUserLogin(loginDVO dvo);
 
 }

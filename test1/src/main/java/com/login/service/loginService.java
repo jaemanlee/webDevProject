@@ -1,7 +1,8 @@
 package com.login.service;
 
+import com.login.dvo.loginDVO;
 
 public interface loginService {
 	
-	public String userLogin(String param);
+	public loginDVO userLogin(loginDVO dvo);
 }

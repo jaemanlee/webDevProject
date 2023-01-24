@@ -2,8 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.login.mapper.loginMapper">
-	<select id="selectUserLogin" resultType ="string">
-		select '1'
-		from dual
+	<select id="selectUserLogin" parameterType="com.login.dvo.loginDVO" resultType ="com.login.dvo.loginDVO">
+		SELECT USER_NAME
+		FROM CMP_USER_INFO
+		WHERE 1=1
+		<if test='id != null  and id!=""'>
+		  AND ID = #{id}
+ 		</if>
+ 		<if test='passwd != null and passwd != ""'>
+		  AND PASSWD = #{passwd}
+ 		</if>
 	</select>
 </mapper>

@@ -7,5 +7,9 @@ import lombok.Setter;
 @Setter
 public class loginDVO {
 
-	@Getter @Setter private String id;
+	private String id;
+	
+	private String userName;
+	
+	private String passwd;
 }

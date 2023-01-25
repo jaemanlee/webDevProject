@@ -10,7 +10,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-	<script src="/resources/js/common.js"></script>
+	 <script src="/resources/js/common.js"></script>
     <link rel="stylesheet" href="/resources/css/main.css" />
     <style> 
     </style>

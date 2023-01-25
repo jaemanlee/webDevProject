@@ -5,8 +5,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
     <title>서울방탈출</title>
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-	 <script src="/resources/js/common.js"></script>
       
     <script>
 
@@ -19,7 +17,8 @@
     </style>
   </head>
   <body>
-  	<jsp:include page="/WEB-INF/ui/main/mainHead.jsp"/>
+  	<%@ include file="/WEB-INF/ui/main/mainHead.jsp" %>
+  	<%-- <jsp:include page="/WEB-INF/ui/main/mainHead.jsp"/> --%>
     <script>
    /*  var map;
     map = L.map('map').setView([37.4979462, 127.025427], 17);

@@ -18,6 +18,7 @@
   </head>
   <body>
   	<%@ include file="/WEB-INF/ui/main/mainHead.jsp" %>
+  	<%@ include file="/WEB-INF/ui/main/mainMiddle.jsp" %>
   	<%-- <jsp:include page="/WEB-INF/ui/main/mainHead.jsp"/> --%>
     <script>
    /*  var map;

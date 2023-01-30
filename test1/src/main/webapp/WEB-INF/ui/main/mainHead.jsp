@@ -26,11 +26,11 @@
   				<input id="id" name="id" type="text" alt="" placeHolder="id">
   				<input id="passwd" name="passwd" type ="password" alt="" placeHolder="password">
   				<a href="javascript:ajaxLogin()">로그인</a>
-  				<a>회원가입</a>
+  				<a href="/join/comewithus.do">회원가입</a>
   			</div>
   			<div style="display:none">
-  				<p><c:out value="${name}"/><span>님 환영합니다.</span></p>
-  				<a href="javascript:ajaxLogout()">로그아웃</a>
+  				 <p><c:out value="${name}"/><span>님 환영합니다.</span></p>
+  				 <a href="javascript:ajaxLogout()">로그아웃</a>
   			</div>
   		</form>
   	</div>

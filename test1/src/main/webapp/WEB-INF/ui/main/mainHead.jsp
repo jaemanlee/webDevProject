@@ -29,7 +29,7 @@
   				<a href="/join/comewithus.do">회원가입</a>
   			</div>
   			<div style="display:none">
-  				 <p><c:out value="${name}"/><span>님 환영합니다.</span></p>
+  				 <p><c:out value="${name}"/><span>님 환영합니다.^^</span></p>
   				 <a href="javascript:ajaxLogout()">로그아웃</a>
   			</div>
   		</form>

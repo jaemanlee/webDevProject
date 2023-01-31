@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+body{
+	background : #FFFFFF;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.joinForm {
+
+	min-height: 100vh;
+	display : flex;
+	margin  : 0 auto;
+	justify-content: center;
+    align-items: center;
+	
+}
+
+.joinForm form{
+	height : 700px;
+	padding : 50px;
+	border  : 10px double black;
+	background : #FFFFFF;
+}
+
+.joinForm input{
+	padding : 10px;
+	display:inline-block;
+	margin: 20px 20px 5px 5px;
+	border: 1px solid #E4DEDE;
+	border-left-width:0; border-right-width:0; border-top-width:0;
+}
+
+.joinForm b{
+	display:inline-block;
+	width : 90px;
+}
+
+.clearfix{
+	justify-content: center;
+    display : flex;
+    margin  : 20px 0px 0px 0px;
+}
+
+.clearfix button{
+	width: 100%;
+	margin: 40px 40px 0px 0px;
+	height : 40px;
+	border-radius: 10px;
+	font-size : medium;
+	font-weight : bold;
+	border  : 3px solid black;
+	background : #FFFFFF;
+}
+
+.clearfix button:hover{
+   background : #000000;
+   color : white;
+   cursor: pointer;
+}

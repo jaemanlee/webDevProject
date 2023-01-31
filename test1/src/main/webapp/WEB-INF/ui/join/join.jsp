@@ -4,126 +4,110 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="/resources/css/main.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/join.css" rel="stylesheet" type="text/css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/lib/jquery-3.6.0.min.js"></script>
-
 <title>회원가입</title>
 </head>
 <body>
-<div id="popUpo" class="popup">
-
-  <table>
-   <tbody id="join_tbody">
-	      <tr>
-	        <th>이름</th>
-	        <td>
-	          <div>
-	            <input type="text" id="join_name">
-	          </div>
-	        </td>
-	     </tr>
-	     <tr>
-	        <th>아이디</th>
-	        <td>
-	        <div>
-	          <form id="form_id">
-	            <input type="text" id="join_id">
-	            <button id="checkId">중복확인</button>
-	          </form>
-		    </div>
-	        </td>
-	      </tr>
-	      <tr>
-	         <th>비밀번호</th>
-	        <td>
-	          <div>
-	             <input type="text" id="join_passwd">
-	          </div>
-	        </td>
-	      </tr>
-	      <tr>
-	        <th>비밀번호 확인</th>
-	        <td>
-	          <div>
-	             <input type="text" id="join_passwdTwo">
-	          </div>
-	        </td>
-	      </tr>
-	      <tr>
-	        <th>우편번호</th>
-	        <td>
-	          <div>
-	             <input type="text" id="join_address">
-	             <button id="find_address" onclick="javscript:_findAddress();"></button>
-	          </div>
-	        </td>
-	      </tr>
-	      <tr>
-	        <th>생년월일/성별</th>
-	        <td>
-	          <div>
-	             <input type="text" id="join_birth">
-	             <input type="radio" name="join_radio" id="join_male" value="남자" checked="checked">남자</input>
-	             <input type="radio" name="join_radio" id="join_female" value="여자">여자</input>
-	          </div>
-	        </td>
-	      </tr>
-   </tbody>
-  
-  </table>
-  <div>
-    <ul>
-      <li>
-         <div>
-			<a id="join_ok" href="javascript:void(0)" onclick="javascript:_joinOk()">회원가입</a>
-         </div>
-      </li>
-      <li>
-        <div>
-           <a id="join_cancel" href="/home.jsp" onclick="">취소</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+<div class = "joinForm">
+ <form action = "joinProcess.do" method = "post">
+ 		<h1>회원가입페이지</h1>
+ 		<hr>
+ 		<b>아이디</b>
+ 		<span>
+ 		<input type = "text" name = "id" placeholder = "아이디를 입력하세요." required maxLength = "12">
+ 		</span>
+ 		<span>
+ 		<input type ="button" id = "idChk"value = "중복체크">
+ 		</span>
+ 		<br>
+ 		<b>비밀번호</b>
+ 		<input type = "text" name = "password" placeholder = "비밀번호는 영어+숫자 조합 10자리이상을 입력하세요." required>
+ 		<br>
+ 		<b>이름</b>
+ 		<input type = "text" name = "name">
+ 		<br>
+ 		<b>나이</b>
+ 		<input type = "text" name="age">
+ 		<br>
+ 		<b>성별</b>
+ 		<input type = "radio" name ="gender" value = "M" checked><span>남자</span>
+ 		<input type = "radio" name ="gender" value = "F"><span>여자</span>
+ 		<br>
+ 		<b>이메일</b>
+ 		<input type = "text" name = "email"> @
+ 		<input class="custom-email" disabled id="domain-input" />
+		<select id="domain-list" onchange = "domainChg()" required >
+			<option value="" selected>선택</option>
+			<option value="naver.com">naver.com</option>
+			<option value="hanmail.net">hanmail.net</option>
+			<option value="google.com">google.com</option>
+			<option value="nate.com">nate.com</option>
+			<option value="custom">직접 입력</option>
+		</select>
+		<br>
+		<b>주소</b>
+		<input type = "text" name = "address" id = "address" disabled>
+		<input type = "button" value = "우편검색"  onclick="postCode()">
+		<br>
+		<b>상세주소</b>
+		<input type = "text" name = "address_detail" >
+ 		<div class = "clearfix">
+ 			<button type = "submit" onclick = "javascript:_joinOk()">회원가입</button>
+ 			<button type = "reset">다시작성</button>
+ 			<button onclick = "history.back()" >돌아가기</button>
+ 		</div>
+ 		
+ 		
+ 		
+ </form>
 </div>
+  
+  
+ 
 <script>
+
+  /*유효성체크*/
    var _joinOk = () => {
-	   Array.from($('body').find('input')).forEach(function(element  , index){
+   var cnt = 0;
+	   Array.from($('body').find('input')).forEach((element  , index)=>{
 		   if($(element).val() == '' || $(element).val() == null){
-			   alert("모든 항목을 입력해주세요");
-			   return;
-		   }
-	   });
-		   
-		   var params = {
-				   "userId" : $('#join_id').val(),
-				   "userPassword" : $('#join_passwd').val(),
-				   "userName" : $('#join_name').val(),
-				   "userAddr" : $('#join_address').val(),
-				   "userBirth" : $('#join_birth').val(),
-				   "userPhone"  : '11',
- 				   "userSex" : $("input[name='join_radio']:checked").val(),
- 				   "mailNo" : "경기도"
-		   }
-		   
-           $.ajax({
-        	   url : "/login/login.do",
-        	   method : 'post',
-        	   data : params,
-        	   dataType : "json", 
-        	   success : function(e) {
-        		   
-        		   console.log(e);
-        	   }
-        	   
-           })		   
+			   cnt += 1;
+		   }});
+	      
+    		if (cnt >= 1){
+    		 alert(cnt+"개의 항목이 입력되지 않았습니다.");
+    		}
+   }
+	   
+   
+   /*도메인select박스*/
+   function domainChg(){
+	    var domainVal = document.getElementById("domain-list")
+	        domainVal = domainVal.options[domainVal.selectedIndex].value;
+	    
+	    if(domainVal=="custom"){
+	    	document.getElementById("domain-input").disabled = false;
+	    }else{
+	    	document.getElementById("domain-input").disabled = true;
+	        document.getElementById("domain-input").value = domainVal;
+	    }
+	    
    }
    
-   var _findAddress = () => {
-	   var option = 'width=600, height=600, menubar=no, status=no, toolbar=no';
-	   window.open("/popUp/findAddress.jsp", '주소찾기', option);
-	   
-   }
+  /*우편번호 검색*/ 
+  function postCode(){
+   new daum.Postcode({
+       oncomplete: function(data) {
+    	   
+       document.getElementById("address").value = data.address;
+           
+       }
+   }).open();
+  }
+	
+   
 </script>
 </body>
 </html>

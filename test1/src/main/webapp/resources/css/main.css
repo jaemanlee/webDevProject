@@ -311,11 +311,49 @@ li {
 }
 
 .mainMiddle {
-	height: 45%;
-	position: relative;
+	height: 407px;
+	position: absolute;
 	top: 59px;
-	width: 97%;
+	width: 1861px;
 	background: #9d9d9d54;
 	border-radius: 4px;
-	left: 21px;
+	left: 27px;
+}
+
+.mainTheme {
+	height: 250px;
+    background-color: #dfdfdf42;
+    position: relative;
+    top: 7px;
+}
+
+.mainTheme p {
+	float : left;
+	font-size: 24px;
+    position: relative;
+    top: -22px;
+    font-weight: bold;
+    font-family: monospace;	
+}
+
+.mainTheme .mainThemeHead input{
+	height: 21px;
+	margin-top: 7px;
+}
+
+.mainTheme .mainThemeDiv {
+	float : right;
+	margin-top: 4px;
+	margin-right: -19px;
+}
+
+.mainTheme div:nth-child(1)  button{
+	right: 28px;
+	position: relative;
+	background: url(/resources/image/search.png) 1px no-repeat;
+	height: 16px;
+	width: 21px;
+	background-size: 16px;
+	border: none;
+	top: 1px;
 }

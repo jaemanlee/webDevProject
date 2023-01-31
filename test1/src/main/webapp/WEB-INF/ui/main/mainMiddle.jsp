@@ -54,6 +54,15 @@
            		</a>
             </div>
           </div>
+          <div class="mainTheme">
+          	<div class="mainThemeHead">
+	      		<p>방탈출 테마</p>
+	       		<div class="mainThemeDiv">
+	       			<input type="text"/>
+	       			<button></button>
+	          	</div>
+          	</div>
+          </div>
 	</div>
 	<script>
 		$(function(){

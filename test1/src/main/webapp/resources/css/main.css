@@ -10,7 +10,7 @@ html {
 body {
 	width : 100%;
 	height : 100%;
-	/* overflow : auto; */
+	overflow : auto;
 }
 
 body .container {
@@ -253,8 +253,8 @@ li {
 
 .mainHeder {
 	position: relative;
-	width: 99%;
-	height: 5%;
+	width: 1900px;
+	height: 41px;
 	display: flex;
 	border: 1px solid;
 	background: #000;
@@ -312,19 +312,19 @@ li {
 
 .mainMiddle {
 	height: 407px;
-	position: absolute;
-	top: 59px;
+	position: relative;
+	top: 11px;
 	width: 1861px;
 	background: #9d9d9d54;
 	border-radius: 4px;
-	left: 27px;
+	left: 19px;
 }
 
 .mainTheme {
-	height: 250px;
-    background-color: #dfdfdf42;
-    position: relative;
-    top: 7px;
+	height: 260px;
+	background-color: #dfdfdf42;
+	position: relative;
+	top: 7px;
 }
 
 .mainTheme p {
@@ -356,4 +356,211 @@ li {
 	background-size: 16px;
 	border: none;
 	top: 1px;
+}
+
+.mainThemeHead {
+	width: 100%;
+    height: 50px;
+}
+
+.mainThemedMiddle {
+	width: 1845px;
+	height: 33px;
+	border: 1px solid #b5b5b575;
+	background: #fff;
+	margin-left: 7px;
+	display:flex;
+	position: relative;
+	bottom: 28px;
+}
+
+.mainThemedMiddle .middleHead {
+	width: 100px;
+}
+
+.mainThemedMiddle .middleHead span {
+	float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b1b1b1;
+}
+
+.mainThemedMiddle .middleMain {
+	width : 1743px;
+}
+
+.mainThemedMiddle .middleMain table td:not:first-child{
+	padding-left: 13px;
+} 
+
+.mainThemedMiddle .middleMain table td button {
+	width: 82px;
+	font-weight: bold;
+	background: #fff;
+	border: none;
+	font-size: 15px;
+}
+
+.mainThemedMiddle .middleMain table td button.active {
+	background : #fff703;
+}
+
+.mainThemedMiddleTwo {
+	width: 1845px;
+	height: 61px;
+	border: 1px solid #b5b5b575;
+	background: #fff;
+	margin-left: 7px;
+	display:flex;
+	position: relative;
+	bottom: 19px;
+}
+.mainThemedMiddleTwo .middleHeadTwo {
+	width: 100px;
+}
+
+.mainThemedMiddleTwo .middleHeadTwo span {
+	float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b1b1b1;
+}
+
+.mainThemedMiddleTwo .middleMainTwo {
+	width : 1743px;
+}
+
+.mainThemedMiddleTwo .middleMainTwo table td:not:first-child{
+	padding-left: 13px;
+} 
+
+.mainThemedMiddleTwo .middleMainTwo table td button {
+	width: 82px;
+	font-weight: bold;
+	background: #fff;
+	border: none;
+	font-size: 15px;
+}
+
+.mainThemedMiddleTwo .middleMainTwo table td button.active {
+	background : #fff703;
+}
+
+.mainThemedMiddleThree {
+	width: 1000px;
+	height: 34px;
+	border: 1px solid #b5b5b575;
+	background: #fff;
+	margin-left: 7px;
+	display:flex;
+	position: relative;
+	bottom: 10px;
+}
+
+.mainThemedMiddleThree .mainThemedMiddlSubOne {
+	width: 600px;
+	display: flex;
+}
+
+.mainThemedMiddleThree .mainThemedMiddlSubTwo {
+	width: 600px;
+	display: flex;
+}
+
+.mainThemedMiddleThree .middleHeadThree {
+	width: 100px;
+}
+
+.mainThemedMiddleThree .middleHeadThree span {
+	float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b1b1b1;
+}
+
+.mainThemedMiddleThree .middleMainThree {
+	width: 400px;
+}
+
+.mainThemedMiddleThree .middleMainThree table td:not:first-child{
+	padding-left: 13px;
+} 
+
+.mainThemedMiddleThree .middleMainThree table td button {
+	width: 82px;
+	font-weight: bold;
+	background: #fff;
+	border: none;
+	font-size: 15px;
+	right: 0;
+	height: 22px;
+}
+
+.mainThemedMiddleThree .middleMainThree table td:last-child button{
+	width : 96px;
+}
+
+.mainThemedMiddleThree .middleMainThree table td button.active {
+	background : #fff703;
+}
+
+
+.mainThemedMiddleFour {
+	width: 1100px;
+	height: 34px;
+	border: 1px solid #b5b5b575;
+	background: #fff;
+	margin-left: 7px;
+	display:flex;
+	position: relative;
+	bottom: 1px;
+}
+
+.mainThemedMiddleFour .mainThemedMiddlSubOne {
+	width: 750px;
+	display: flex;
+}
+
+.mainThemedMiddleFour .mainThemedMiddlSubTwo {
+	width: 422px;
+	display: flex;
+}
+
+.mainThemedMiddleFour .middleHeadFour {
+	width: 100px;
+}
+
+.mainThemedMiddleFour .middleHeadFour span {
+	float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b1b1b1;
+}
+
+.mainThemedMiddleFour .middleMainThree {
+	width: 400px;
+}
+
+.mainThemedMiddleFour .middleMainFour table td:not:first-child{
+	padding-left: 13px;
+} 
+
+.mainThemedMiddleFour .middleMainFour table td button {
+	width: 82px;
+	font-weight: bold;
+	background: #fff;
+	border: none;
+	font-size: 15px;
+	right: 0;
+	height: 22px;
+}
+
+
+.mainThemedMiddleFour .middleMainFour table td button.active {
+	background : #fff703;
+}
+
+.mainPagination {
+	position: relative;
+	top: 15px;
 }

@@ -14,7 +14,7 @@
  <form action = "joinProcess.do" method = "post">
  		<h1>회원가입페이지</h1>
  		<hr>
- 		<b>아이디</b>
+ 		<b>아이디</b>  
  		<span>
  		<input type = "text" name = "id" placeholder = "아이디를 입력하세요." required maxLength = "12">
  		</span>
@@ -23,10 +23,10 @@
  		</span>
  		<br>
  		<b>비밀번호</b>
- 		<input type = "text" name = "password" placeholder = "비밀번호는 영어+숫자 조합 10자리이상을 입력하세요." required>
+ 		<input type = "text" name = "passwd" placeholder = "비밀번호는 영어+숫자 조합 10자리이상을 입력하세요." required>
  		<br>
  		<b>이름</b>
- 		<input type = "text" name = "name">
+ 		<input type = "text" name = "userName">
  		<br>
  		<b>나이</b>
  		<input type = "text" name="age">
@@ -36,7 +36,7 @@
  		<input type = "radio" name ="gender" value = "F"><span>여자</span>
  		<br>
  		<b>이메일</b>
- 		<input type = "text" name = "email"> @
+ 		<input type = "text" name = "userEmail"> @
  		<input class="custom-email" disabled id="domain-input" />
 		<select id="domain-list" onchange = "domainChg()" required >
 			<option value="" selected>선택</option>
@@ -48,11 +48,11 @@
 		</select>
 		<br>
 		<b>주소</b>
-		<input type = "text" name = "address" id = "address" disabled>
+		<input type = "text" name = "address" id = "address">
 		<input type = "button" value = "우편검색"  onclick="postCode()">
 		<br>
 		<b>상세주소</b>
-		<input type = "text" name = "address_detail" >
+		<input type = "text" name = "addressDetail" >
  		<div class = "clearfix">
  			<button type = "submit" onclick = "javascript:_joinOk()">회원가입</button>
  			<button type = "reset">다시작성</button>

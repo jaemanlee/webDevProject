@@ -411,12 +411,16 @@
 		
 		const fnMiddleBtnClik = (target,div) => {
 			if(div == 'middleMain'){
-				if($('.middleMain td:eq(0) button') != target && $('.middleMain td:eq(0) button').prop('class') == 'active'){
+				if($('.middleMain td:eq(0) button')[0] != target && $('.middleMain td:eq(0) button').prop('class') == 'active'){
 					$('.middleMain td:eq(0) button').prop('class', '');
+				}else if($('.middleMain td:eq(0) button')[0] == target ){
+					$('.middleMain td button').prop('class', '');
 				}
 			}else if(div == 'middleMainTwo'){
 				if($('.middleMainTwo td:eq(0) button') != target && $('.middleMainTwo td:eq(0) button').prop('class') == 'active'){
 					$('.middleMainTwo td:eq(0) button').prop('class', '');
+				}else if($('.middleMainTwo td:eq(0) button')[0] == target ){
+					$('.middleMainTwo td button').prop('class', '');
 				}
 			}
 			

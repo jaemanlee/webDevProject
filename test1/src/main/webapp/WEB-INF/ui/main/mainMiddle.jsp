@@ -314,12 +314,6 @@
           	</div>
           </div>
           <div class="mainPagination">
-          	<div></div>
-          	<div></div>
-          	<div></div>
-          	<div></div>
-          	<div></div>
-          	<div></div>
           </div>
 	</div>
 	<script>
@@ -354,6 +348,11 @@
 	        });
 			
 			fnUiEventHandler();
+			
+			gfnAjaxStatus("/main/mainPagination.do", {}, (e)=>{
+				$('.mainPagination').append(e);
+				console.log(e);
+			})
 		})
 		
 		/*

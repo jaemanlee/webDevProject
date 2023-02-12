@@ -6,11 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
     <title>서울방탈출</title>
       
-    <script>
-
-       
-     
-    </script>
     <style> 
         .olControlAttribution{right:20px;}
         .olControlLayerSwitcher{right:20px; top:20px;}

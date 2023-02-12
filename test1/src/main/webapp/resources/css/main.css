@@ -563,4 +563,40 @@ li {
 .mainPagination {
 	position: relative;
 	top: 15px;
+	background: #dfdfdf42;
+	height: auto;
+	display: inline-block;
+	width: 100%;
+}
+
+.mainPagination .pageing {
+	height: 200px;
+}
+
+.mainPagination .pageing .imageDiv {
+	float: left;
+	height: 310px;
+	width: 300px;
+	background-size: 210px !important;
+	margin-left: 70px;
+	margin-top: 12px;
+}
+
+.mainPagination .pageing .pageInfo {
+	width: 500px;
+	height: auto;
+	background: #fff;
+	border-radius: 6px;
+}
+
+.mainPagination .pageing .pageInfo span {
+	font-size : 20px;
+}
+
+.mainPagination .pageing .pageInfo b {
+	padding-left : 10px;
+}
+
+.mainPagination .pageing .pageInfo div:last-child b {
+	color: #f00;
 }

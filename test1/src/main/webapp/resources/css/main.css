@@ -541,6 +541,10 @@ li {
 	width: 400px;
 }
 
+.middleMainFour {
+	padding-top : 2px;
+}
+
 .mainThemedMiddleFour .middleMainFour table td:not:first-child{
 	padding-left: 13px;
 } 
@@ -562,7 +566,7 @@ li {
 
 .mainPagination {
 	position: relative;
-	top: 15px;
+	top: 4%;
 	background: #dfdfdf42;
 	height: auto;
 	display: inline-block;
@@ -575,28 +579,52 @@ li {
 
 .mainPagination .pageing .imageDiv {
 	float: left;
-	height: 310px;
-	width: 300px;
+	height: 345px;
+	width: 210px;
 	background-size: 210px !important;
-	margin-left: 70px;
+	margin-left: 130px;
 	margin-top: 12px;
 }
+.mainPagination .pageing .imageDiv div {
+	position : absolute;
+	bottom: 9px;
+}
 
-.mainPagination .pageing .pageInfo {
-	width: 500px;
+.mainPagination .pageing .imageDiv button {
+	border: none;
+	width: 100px;
+	background: rgb(133, 122, 255);
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	height: 30px;
+}
+
+ .pageInfo {
+	width: auto;
 	height: auto;
-	background: #fff;
+	background: #7baaff;
 	border-radius: 6px;
+	text-align : center;
+	border: 1px solid #000;
+	position : absolute;
+	color: #fff;
 }
 
-.mainPagination .pageing .pageInfo span {
-	font-size : 20px;
+ .pageInfo span {
+	font-size: 15px;
 }
 
-.mainPagination .pageing .pageInfo b {
-	padding-left : 10px;
+.pageInfo div b{
+	padding-left : 5px;
 }
 
-.mainPagination .pageing .pageInfo div:last-child b {
+ .pageInfo div:last-child b {
 	color: #f00;
+}
+
+.btnInfo {
+	position : absolute;
+	width: 130px;
+	height : 100px;
+	background: #e8e6fb;
 }

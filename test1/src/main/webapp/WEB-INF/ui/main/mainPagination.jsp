@@ -6,26 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 </head>
 <body>
-	<div class="pageing">
-		<div>
-			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'></div>
-		</div>
-		<div>
-			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'></div>
-		</div>
-		<div>
-			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'></div>
-		</div>
-		<div>
-			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'></div>
-		</div>
-		<div>
-			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'></div>
-		</div>
-		 <div class="pageInfo" style="display:none;">
-			<p>테마 정보</p>
+	<div id="infoPopup" class="pageInfo" style=display:none;">
 			<div>
-				<span>위치 :<b>경기도 군포시 산본로 296 108동 407호</b></span>
+				<span>테마명 :<b>중대장은 오늘 너희에게 무척 실망했다.</b></span>
 			</div>
 			<div>
 				<span>장르 :<b>공포</b></span>
@@ -39,21 +22,80 @@
 			<div>
 				<span>난이도 :<b>★★★★★</b></span>
 			</div>
+	</div>
+	<div id="buttonPopup"  class="btnInfo" style="display:none;">
+		<button>위치보기</button>
+		<button>리뷰보기</button>
+	</div>
+	<div class="pageing">
+		<div>
+			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'>
+				<div>
+					<button>예약하기</button>
+					<button>리뷰보기</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'>
+				<div>
+					<button>예약하기</button>
+					<button>리뷰보기</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'>
+				<div>
+					<button>예약하기</button>
+					<button>리뷰보기</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'>
+				<div>
+					<button>예약하기</button>
+					<button>리뷰보기</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="imageDiv" style='background:url("/resources/image/zeroWorld/butter.jpg") no-repeat;'>
+				<div>
+					<button>예약하기</button>
+					<button>리뷰보기</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	
 	<script>
 		$(function(){
 			$('.imageDiv').on('mouseover', (e)=>{
+				console.log(e);
 				 e.target.style.transform = "scale(1.2)";
-			     e.target.style.zIndex = 1;
-			     e.target.style.transition = "all 0.5s";
+				 e.target.style.zIndex = 1;
+				 e.target.style.transition = "all 0.5s";
+			     if($(e.target).prop('class') == 'imageDiv'){
+			    	 $('#infoPopup').css('left', e.target.offsetLeft -60 + 'px');
+				     $('#infoPopup').css('top', '-140px');
+			    	 $('#infoPopup').css('display','block');
+					}
 			})
+			
 			
 			$('.imageDiv').on('mouseout', (e)=>{
 				 e.target.style.transform = "scale(1)";
-			     e.target.style.zIndex = 1;
-			     e.target.style.transition = "all 0.5s";
+				 e.target.style.zIndex = 1;
+				 e.target.style.transition = "all 0.5s";
+				 $('#infoPopup').css('display','none'); 
+			})
+			
+			$('.imageDiv').on('click', (e)=>{
+				$('#buttonPopup').css('display','block');
+				$('#buttonPopup').css('top', '90px');
+				$('#buttonPopup').css('left', e.target.offsetLeft + 230 + 'px');
 			})
 			
 		})

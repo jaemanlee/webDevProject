@@ -326,7 +326,7 @@
 				slidesToShow : 4,        // 한 화면에 보여질 컨텐츠 개수
 			    slidesToScroll : 1,        //스크롤 한번에 움직일 컨텐츠 개수
 			    draggable:true,
-			    arrows:true,
+			    arrows:false,
 			    centerMode:true,
 			    centerPadding:'180px',
 			    autoplay : true,

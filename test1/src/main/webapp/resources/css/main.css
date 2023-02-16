@@ -578,19 +578,24 @@ li {
 }
 
 .mainPagination .pageing .imageDiv {
-	float: left;
-	height: 345px;
+	height: 300px;
 	width: 210px;
 	background-size: 210px !important;
-	margin-left: 130px;
-	margin-top: 12px;
-}
-.mainPagination .pageing .imageDiv div {
-	position : absolute;
-	bottom: 9px;
 }
 
-.mainPagination .pageing .imageDiv button {
+ .mainPagination .pageing .pageDiv {
+ 	float: left;
+ 	margin-left: 130px;
+ 	margin-top: 12px;
+ 	height: 371px;
+ }
+ 
+ .mainPagination .pageing .pageDiv div:nth-child(2) {
+    position: relative;
+    bottom: -9px;
+} 
+
+.mainPagination .pageing .pageDiv button {
 	border: none;
 	width: 100px;
 	background: rgb(133, 122, 255);
@@ -600,12 +605,11 @@ li {
 }
 
  .pageInfo {
-	width: auto;
+	width: 300px;
 	height: auto;
-	background: #7baaff;
+	background: #181818;
 	border-radius: 6px;
 	text-align : center;
-	border: 1px solid #000;
 	position : absolute;
 	color: #fff;
 }

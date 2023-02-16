@@ -351,7 +351,6 @@
 			
 			gfnAjaxStatus("/main/mainPagination.do", {}, (e)=>{
 				$('.mainPagination').append(e);
-				console.log(e);
 			})
 		})
 		
@@ -373,6 +372,7 @@
 			*/
 			$('.middleMainTwo td button').on('click', (e)=>{
 				fnMiddleBtnClik(e.target, 'middleMainTwo');
+				console.log(e.target)
 			})
 			
 			/*
@@ -403,9 +403,9 @@
 				fnMiddleBtnClik(e.target);
 			})
 			
-			$('.mainThemedMiddle button, .mainThemedMiddleTwo button, .mainThemedMiddleThree button ,.mainThemedMiddleFour button').on('click', (e)=>{
+		/* 	$('.mainThemedMiddle button, .mainThemedMiddleTwo button, .mainThemedMiddleThree button ,.mainThemedMiddleFour button').on('click', (e)=>{
 				console.log(e);
-			})
+			}) */
 		}
 		
 		const fnMiddleBtnClik = (target,div) => {
@@ -425,9 +425,53 @@
 			
 			if($(target).prop('class')=='active'){
 				$(target).prop('class','');
+				fnChkBtn();
 				return;
 			}
 			$(target).prop('class','active');
+			
+			fnChkBtn();
+		}
+		const fnChkBtn = () => {
+			let param = {};
+			let locationArray = []; //지역
+			let themeArray = []; //장르
+			let categoryArray = [];//유형
+			let recommandPeoArray = [];//추천인원
+			let diffArray = [];//난이도
+			let activityArray = [];//활동성
+			//active된 지역 array화
+			$('.middleMain td button.active').each((index, item)=>{
+				locationArray.push(item.value);
+			})
+			//active된 장르 array화
+			$('.middleMainTwo td button.active').each((index, item)=>{
+				themeArray.push(item.value);
+			})
+			//active된 유형 array화
+			$('.mainThemedMiddleThree .mainThemedMiddlSubOne td button.active').each((index, item)=>{
+				categoryArray.push(item.value);
+			})
+			//active된 추천인원 array화
+			$('.mainThemedMiddleThree .mainThemedMiddlSubTwo td button.active').each((index, item)=>{
+				recommandPeoArray.push(item.value);
+				param.ThemePeo = 'T';
+			})
+			//active된 난이도 array화
+			$('.mainThemedMiddleFour .mainThemedMiddlSubOne td button.active').each((index, item)=>{
+				diffArray.push(item.innerHTML);
+			})
+			//active된 활동성 array화
+			$('.mainThemedMiddleFour .mainThemedMiddlSubTwo td button.active').each((index, item)=>{
+				activityArray.push(item.value);
+			})
+			
+			console.log(locationArray);
+			console.log(themeArray);
+			console.log(categoryArray);
+			console.log(recommandPeoArray);
+			console.log(diffArray);
+			console.log(activityArray);
 		}
 	</script>
 </body>

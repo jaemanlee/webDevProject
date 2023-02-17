@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,19 +9,19 @@
 <body>
 	<div id="infoPopup" class="pageInfo" style=display:none;">
 			<div>
-				<span>테마명 :<b>나비효과.</b></span>
+				<span>테마명 :<b></b></span>
 			</div>
 			<div>
-				<span>장르 :<b>공포</b></span>
+				<span>장르 :<b></b></span>
 			</div>
 			<div>
-				<span>시간 :<b>60분</b></span>
+				<span>시간 :<b>분</b></span>
 			</div>
 			<div>
-				<span>활동성 :<b>높음</b></span>
+				<span>활동성 :<b></b></span>
 			</div>
 			<div>
-				<span>난이도 :<b>★★★★★</b></span>
+				<span>난이도 :<b></b></span>
 			</div>
 	</div>
 	<div id="buttonPopup"  class="btnInfo" style="display:none;">
@@ -77,8 +78,16 @@
 	
 	<script>
 		$(function(){
+			
+			
 			$('.imageDiv').on('mouseover', (e)=>{
-				console.log(e);
+				console.log("${param}");
+				$('.pageing .imageDiv').each((index,item)=>{
+					if(item == e.target){
+						console.log(index)
+						console.log("${resultList["+parseInt(index)+"].cafeNm}")
+					}
+				})
 				 e.target.style.transform = "scale(1.2)";
 				 e.target.style.zIndex = 1;
 				 e.target.style.transition = "all 0.5s";

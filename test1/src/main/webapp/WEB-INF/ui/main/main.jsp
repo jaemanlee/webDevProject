@@ -40,19 +40,6 @@
         }) 
     	
     }) */
-    fnSearch = function() {
-    	   console.log($('#searchInput').val());
-    	   var url = 'http://api.vworld.kr/req/address?service=address&request=getcoord&version=2.0&crs=epsg:4326&address='+$('#searchInput').val()+'refine=true&simple=false&OUTPUT=text/javascript&EXCEPTIONS=text/javascript&type=road&key=BCC43AEA-6121-3B95-9492-77AB9A231DE8';
-    	   var ajax = $.ajax({
-               url : url,
-               dataType : 'jsonp',
-               async : false,
-               jsonpCallback:"parseResponse",
-               success : function(response){
-                  console.log(response);
-               }
-           }) 
-    }
     </script>           
   </body>
 </html>

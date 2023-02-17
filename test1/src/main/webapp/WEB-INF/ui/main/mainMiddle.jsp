@@ -59,7 +59,7 @@
 	      		<p>방탈출 테마</p>
 	       		<div class="mainThemeDiv">
 	       			<input type="text"/>
-	       			<button></button>
+	       			<button onclick="javascript:fnSearch()"></button>
 	          	</div>
           	</div>
           	<div class="mainThemedMiddle">
@@ -70,7 +70,7 @@
           			<table>
           				<tr>
           					<td>
-          						<button class="active">전국</button>
+          						<button class="active" value="ALL">전국</button>
           						<span>|</span>
           					</td>
           					<td>
@@ -116,7 +116,7 @@
           			<table>
           				<tr>
           					<td>
-          						<button class="active">전체</button>
+          						<button class="active" value="ALL">전체</button>
           						<span>|</span>
           					</td>
           					<td>
@@ -217,11 +217,11 @@
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button value="AB02">장치</button>
+	          						<button class="active"  value="AB02">장치</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button value="AB03">비슷한 비율</button>
+	          						<button class="active" value="AB03">비슷한 비율</button>
 	          						<span>|</span>
 	          					</td>
 	          				</tr>
@@ -240,15 +240,15 @@
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>3명</button>
+	          						<button class="active">3명</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>4명</button>
+	          						<button class="active">4명</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>5명 이상</button>
+	          						<button class="active">5명 이상</button>
 	          						<span>|</span>
 	          					</td>
 	          				</tr>
@@ -269,19 +269,19 @@
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>2</button>
+	          						<button class="active">2</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>3</button>
+	          						<button class="active">3</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>4</button>
+	          						<button class="active">4</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button>5</button>
+	          						<button class="active">5</button>
 	          						<span>|</span>
 	          					</td>
 	          				</tr>
@@ -300,11 +300,11 @@
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button value="1">보통</button>
+	          						<button class="active" value="1">보통</button>
 	          						<span>|</span>
 	          					</td>
 	          					<td>
-	          						<button value="2">많음</button>
+	          						<button class="active" value="2">많음</button>
 	          						<span>|</span>
 	          					</td>
 	          				</tr>
@@ -349,7 +349,7 @@
 			
 			fnUiEventHandler();
 			
-			gfnAjaxStatus("/main/mainPagination.do", {}, (e)=>{
+			gfnAjaxStatus("/main/mainPagination.do", {"pageIndex" : 0}, (e)=>{
 				$('.mainPagination').append(e);
 			})
 		})
@@ -403,12 +403,22 @@
 				fnMiddleBtnClik(e.target);
 			})
 			
-		/* 	$('.mainThemedMiddle button, .mainThemedMiddleTwo button, .mainThemedMiddleThree button ,.mainThemedMiddleFour button').on('click', (e)=>{
-				console.log(e);
-			}) */
+			/*
+			* 키워드 검색 엔터키 이벤트
+			*/
+			$('.mainThemeDiv input').on('keyup', (e)=>{console.log(e.keyCode)
+				if(e.keyCode == 13){
+					fnSearchKeyWord();
+				}	
+			})
+			
 		}
 		
+		/*
+		* 지역, 장르, 유형, 난이도 클릭 이벤트 함수
+		*/
 		const fnMiddleBtnClik = (target,div) => {
+			let param = {};
 			if(div == 'middleMain'){
 				if($('.middleMain td:eq(0) button')[0] != target && $('.middleMain td:eq(0) button').prop('class') == 'active'){
 					$('.middleMain td:eq(0) button').prop('class', '');
@@ -430,48 +440,77 @@
 			}
 			$(target).prop('class','active');
 			
-			fnChkBtn();
+			fnChkBtn(param);
+			fnSearch(param);
 		}
-		const fnChkBtn = () => {
-			let param = {};
-			let locationArray = []; //지역
-			let themeArray = []; //장르
-			let categoryArray = [];//유형
-			let recommandPeoArray = [];//추천인원
-			let diffArray = [];//난이도
-			let activityArray = [];//활동성
+		
+		/*
+		* 테마 검색 분류 파라미터화 
+		*/
+		const fnChkBtn = (param) => {
+			param.location = [];
+			param.theme = [];
+			param.category = [];
+			param.diff=[];
+			param.activity = [];
 			//active된 지역 array화
 			$('.middleMain td button.active').each((index, item)=>{
-				locationArray.push(item.value);
+				if(item.value != 'ALL'){
+					param.location.push(item.value);
+				}
 			})
 			//active된 장르 array화
 			$('.middleMainTwo td button.active').each((index, item)=>{
-				themeArray.push(item.value);
+				if(item.value != 'ALL'){
+					param.theme.push(item.value)
+				}
 			})
 			//active된 유형 array화
 			$('.mainThemedMiddleThree .mainThemedMiddlSubOne td button.active').each((index, item)=>{
-				categoryArray.push(item.value);
+				param.category.push(item.value);
 			})
 			//active된 추천인원 array화
 			$('.mainThemedMiddleThree .mainThemedMiddlSubTwo td button.active').each((index, item)=>{
-				recommandPeoArray.push(item.value);
-				param.ThemePeo = 'T';
+				param.themePeo = 'T';
+				switch(item.innerHTML) {
+					case "2명" : param.themePeoTwo = 'T';
+								break;
+					case "3명" : param.themePeoThree = 'T';
+								break;
+					case "4명" : param.themePeoFour = 'T';
+								break;
+					case "5명 이상" : param.themePeoFivewo = 'T';
+									break;
+				}
 			})
 			//active된 난이도 array화
 			$('.mainThemedMiddleFour .mainThemedMiddlSubOne td button.active').each((index, item)=>{
-				diffArray.push(item.innerHTML);
+				param.diff.push(item.innerText);
 			})
 			//active된 활동성 array화
 			$('.mainThemedMiddleFour .mainThemedMiddlSubTwo td button.active').each((index, item)=>{
-				activityArray.push(item.value);
+				param.activity.push(item.value);
 			})
+			console.log(param);			
+		}
+		
+		const fnSearch = (param) => {
+			console.log(param);
+			if(param){
+				gfnAjaxStatus("/main/mainPagination.do", param, (e)=>{
+					console.log(e);
+				})
+			}else{
+				param = {};
+				param.keyWord = $('.mainThemeDiv input').val();
+				if(param.keyWord == null || param.keyWord == ''){
+					alert("검색어를 입력해주세요");
+					return;
+				}
+			}
 			
-			console.log(locationArray);
-			console.log(themeArray);
-			console.log(categoryArray);
-			console.log(recommandPeoArray);
-			console.log(diffArray);
-			console.log(activityArray);
+			
+			
 		}
 	</script>
 </body>

@@ -23,21 +23,29 @@ jQuery.fn.serializeObject = function() {
     return obj;
 };
 
-var gfnAjaxStatus= (url,data,callback) => {
-	$.ajax({
-		type: "post", //요청 메소드 방식
-		headers : {
-			"X-HTTP-Method-Override" : "POST"
-		},
-		contentType:"application/json;charset=UTF-8",
-		url:url,
-		data : JSON.stringify(data),
-		success : function(result){
-			callback(result);
-		},
-		error : function(a, b, c){
-		}
+const gfnAjaxStatus= (url,data,callback) => {
+	new Promise((succ, fail)=>{
+		$.ajax({
+			type: "post", //요청 메소드 방식
+			headers : {
+				"X-HTTP-Method-Override" : "POST"
+			},
+			contentType:"application/json;charset=UTF-8",
+			url:url,
+			data : JSON.stringify(data),
+			success : function(result){
+				succ(result);
+			},
+			error : function(a, b, c){
+				fail(a,b,c);
+			}
 		
+		})
+		
+	}).then((result) => {
+		callback(result);
+	}).catch((a,b,c)=> {
+		console.log(a);
 	})
 	
 }

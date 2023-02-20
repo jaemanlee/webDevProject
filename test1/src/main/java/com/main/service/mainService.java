@@ -8,5 +8,6 @@ public interface mainService {
 
 	List<?> selectThemeList(mainDVO dvo);
 	
+	List<?> selectMiddleThemeList();
 	int selectThemeListCount(mainDVO dvo);
 }

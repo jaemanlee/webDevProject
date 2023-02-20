@@ -574,18 +574,18 @@ li {
 }
 
 .mainPagination .pageing {
-	height: 200px;
+	height: 370px;
 }
 
 .mainPagination .pageing .imageDiv {
 	height: 300px;
-	width: 210px;
-	background-size: 210px !important;
+	width: 250px;
+	background-size: 250px!important;
 }
 
  .mainPagination .pageing .pageDiv {
  	float: left;
- 	margin-left: 130px;
+ 	margin-left: 100px;
  	margin-top: 12px;
  	height: 371px;
  }
@@ -597,7 +597,7 @@ li {
 
 .mainPagination .pageing .pageDiv button {
 	border: none;
-	width: 100px;
+	width: 122px;
 	background: rgb(133, 122, 255);
 	font-weight: bold;
 	color: rgb(255, 255, 255);
@@ -605,7 +605,7 @@ li {
 }
 
  .pageInfo {
-	width: 300px;
+	width: 330px;
 	height: auto;
 	background: #181818;
 	border-radius: 6px;
@@ -615,7 +615,7 @@ li {
 }
   
  .pageInfo span {
-	font-size: 15px;
+	font-size: 16px;
 }
 
 .pageInfo div b{
@@ -631,4 +631,54 @@ li {
 	width: 130px;
 	height : 100px;
 	background: #e8e6fb;
+}
+
+.pagingIndex {
+	width: 290px;
+	margin: 0 auto;
+}
+
+.pagingIndex a{
+	border: 1px solid #fff;
+	text-align: center;
+	width: 25px;
+	display: inline-block;
+	height: 25px;
+	background-color: #857aff;
+	color: #fff;
+	font-weight: bold;
+	padding-top: 3px;
+	cursor: pointer;
+}
+
+.alertPopUp{
+    width: 370px;
+    height: 160px;
+    background: #ffffff;
+    z-index: 100000;
+    position: absolute;
+    text-align: center;
+    border: 1px solid #000;
+    display: grid;
+    border-radius: 14px;
+}
+
+.alertPopUp span {
+	color: #000;
+	font-weight: bold;
+	font-size: 18px;
+	padding-top: 15px;
+}
+
+.alertPopUp button {
+	width: 80px;
+	margin: 0 auto;
+	height: 30px;
+	background: #4daef3;
+	color: #fff;
+	border: none;
+	font-size: 15px;
+	font-weight: bold;
+	position: relative;
+	top: 27px;
 }

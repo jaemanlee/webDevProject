@@ -28,18 +28,12 @@ public class mainController {
 		
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/main/mainPagination");
-		String param = new Gson().toJson(mainDvo);
-		view.addObject("param", param);
+		List<?> result = service.selectThemeList(mainDvo);
+		int totalCount = service.selectThemeListCount(mainDvo);
+		view.addObject("resultList", result);
+		view.addObject("totalCount", totalCount);
 		return view;
 	}
 	
-	@PostMapping("/themeList")
-	@ResponseBody
-	public List<?> selectThemeList(HttpServletRequest request, @RequestBody mainDVO mainDvo) {
-		List<?> result = service.selectThemeList(mainDvo);
-		int totalCount = service.selectThemeListCount(mainDvo);
-		
-		return result;
-	}
 		
 }

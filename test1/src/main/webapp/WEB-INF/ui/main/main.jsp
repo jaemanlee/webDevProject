@@ -14,6 +14,10 @@
   <body>
   	<%@ include file="/WEB-INF/ui/main/mainHead.jsp" %>
   	<%@ include file="/WEB-INF/ui/main/mainMiddle.jsp" %>
+  	<div class="alertPopUp" style="display:none;">
+  		<span></span>
+  		<button onclick="javascript:fnPopupBtnClick();">확인</button>
+  	</div>
   	<%-- <jsp:include page="/WEB-INF/ui/main/mainHead.jsp"/> --%>
     <script>
    /*  var map;
@@ -40,6 +44,12 @@
         }) 
     	
     }) */
-    </script>           
+    
+    function fnPopupBtnClick() {
+    	   $('.alertPopUp').css('display', 'none');
+       }
+    </script>     
+    
+          
   </body>
 </html>

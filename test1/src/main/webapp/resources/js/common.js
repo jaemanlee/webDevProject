@@ -49,3 +49,17 @@ const gfnAjaxStatus= (url,data,callback) => {
 	})
 	
 }
+
+
+const gfnAlertPopup = (message) =>{
+	var popupHeight = $('.alertPopUp').innerHeight();
+	var popupWidth = $('.alertPopUp').innerWidth();
+	
+	var popupX = (window.screen.width / 2) - (popupWidth / 2);
+	var popupY= (window.screen.height / 2) - (popupHeight / 2);
+	$('.alertPopUp').css('left', popupX + 'px');
+	$('.alertPopUp').css('top', popupY + 'px');
+	$('.alertPopUp').css('display','');	
+	$('.alertPopUp span').html(message);
+	$('.alertPopUp button').focus();
+}

@@ -18,4 +18,5 @@ public class mainDVO extends cmmSearchDVO{
 	private String themeDiff;
 	private String cafeLink;
 	private String themeAct;
+	private String imagePath;
 }

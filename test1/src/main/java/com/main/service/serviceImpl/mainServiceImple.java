@@ -28,4 +28,10 @@ public class mainServiceImple implements mainService {
 		return mapper.selectThemeListCount(dvo);
 	}
 
+	@Override
+	public List<?> selectMiddleThemeList() {
+		// TODO Auto-generated method stub
+		return mapper.selectMiddleThemeList();
+	}
+
 }

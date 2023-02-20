@@ -19,10 +19,12 @@
 	            FROM CMP_CODE_MAPPING
 	            WHERE SGRP_CD = 'THEME_ACTIVITY'
 	            AND LGRP_CD = A.THEME_ACT) AS THEME_ACT,
-	            B.URL AS CAFE_LINK
+	            B.URL AS CAFE_LINK,
+	            A.IMAGE_PATH
 		FROM CAFE_THEME A
 		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
 		WHERE 1=1
+		AND A.IMAGE_PATH IS NOT NULL
 		<if test="keyWord !='' and keyWord != null">
 			AND ( REPLACE(A.CAFE_NM, ' ', '') LIKE '%' || #{keyWord} || '%' OR REPLACE(A.CAFE_THEME_NM,' ','') LIKE '%' || #{keyWord} || '%')
 		</if>
@@ -96,10 +98,12 @@
 	            FROM CMP_CODE_MAPPING
 	            WHERE SGRP_CD = 'THEME_ACTIVITY'
 	            AND LGRP_CD = A.THEME_ACT) AS THEME_ACT,
-	            B.URL AS CAFE_LINK
+	            B.URL AS CAFE_LINK,
+	            A.IMAGE_PATH
 		FROM CAFE_THEME A
 		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
 		WHERE 1=1
+		AND A.IMAGE_PATH IS NOT NULL
 		<if test="keyWord !='' and keyWord != null">
 			AND ( REPLACE(A.CAFE_NM, ' ', '') LIKE '%' || #{keyWord} || '%' OR REPLACE(A.CAFE_THEME_NM,' ','') LIKE '%' || #{keyWord} || '%')
 		</if>
@@ -152,6 +156,13 @@
 		</if>
 		ORDER BY CAFE_NM, CAFE_THEME_NM
 		)
+	</select>
+	
+	<select id="selectMiddleThemeList" resultType ="com.main.dvo.mainDVO">
+		SELECT A.IMAGE_PATH, B.URL AS CAFE_LINK, A.CAFE_THEME_NM
+		FROM CAFE_THEME A
+		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
+		WHERE A.CAFE_CD = 'CC89'	
 	</select>
 
 </mapper>

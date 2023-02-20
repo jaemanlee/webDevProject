@@ -55,18 +55,18 @@
     		let param = $('#loginForm').serializeObject();
     		
     		if($('#loginForm div:eq(0) input:eq(0)').val() == ''){
-    			alert('아이디를 입력해주세요.');
+    			gfnAlertPopup('아이디를 입력해주세요.')
     			return;
     		}
     		
     		if($('#loginForm div:eq(0) input:eq(1)').val() == ''){
-    			alert('비밀번호를 입력해주세요.');
+    			gfnAlertPopup('비밀번호를 입력해주세요.');
     			return;
     		}
     		gfnAjaxStatus('/login/doLogin.do', param, (e)=>{
     			console.log(e);
     			if(!e){
-    				alert("아이디 또는 비밀번호를 확인해주세요.");
+    				gfnAlertPopup("아이디 또는 비밀번호를 확인해주세요.");
     				$('#mainHeder div input:eq(0)').focus();
     			}else{
     				$('#mainHeder div').css('display', 'none');

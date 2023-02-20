@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,52 +9,14 @@
 <body>
 	<div id="mainMiddle" class="mainMiddle">
 		<div id="slider-div">
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/butter.jpg" style="height:400px">
-            	</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/caller.jpg" style="height:400px">
-            	</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/done.jpg" style="height:400px">
-           		</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/forest.jpg" style="height:400px">
-       			</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/her.jpg" style="height:400px">
-           		</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/iam.jpg" style="height:400px">
-           		</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/ring.jpg" style="height:400px">
-           		</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/winterday.jpg" style="height:400px">
-           		</a>
-            </div>
-            <div style="width:400px;">
-            	<a href="javascript:void(0)">
-            		<img src="/resources/image/zeroWorld/zeroHotel.jpg" style="height:400px">
-           		</a>
-            </div>
-          </div>
+			<c:forEach var="mainResultList" items="${mainResultList}" varStatus="status">
+				<div style="width:400px;">
+	            	<a href='<c:out value="${mainResultList.cafeLink}" />'>
+	            		<img title='<c:out value="${mainResultList.cafeThemeNm}" />' src='<c:out value="${mainResultList.imagePath}" />' style="height:400px">
+	            	</a>
+	            </div>
+			</c:forEach>
+        </div>
           <div class="mainTheme">
           	<div class="mainThemeHead">
 	      		<p>방탈출 테마</p>
@@ -328,7 +291,7 @@
 			    draggable:true,
 			    arrows:false,
 			    centerMode:true,
-			    centerPadding:'180px',
+			    centerPadding:'80px',
 			    autoplay : true,
 			    responsive: [
 			        {
@@ -346,6 +309,7 @@
 			        },
 			    ]
 	        });
+			
 			
 			fnUiEventHandler();
 			
@@ -435,13 +399,12 @@
 			
 			if($(target).prop('class')=='active'){
 				$(target).prop('class','');
-				fnChkBtn();
+				fnChkBtn(param);
 				return;
 			}
 			$(target).prop('class','active');
 			
 			fnChkBtn(param);
-			fnSearch(param);
 		}
 		
 		/*
@@ -491,14 +454,17 @@
 			$('.mainThemedMiddleFour .mainThemedMiddlSubTwo td button.active').each((index, item)=>{
 				param.activity.push(item.value);
 			})
-			console.log(param);			
+			console.log(param);		
+			
+			fnSearch(param);
 		}
 		
 		const fnSearch = (param) => {
 			console.log(param);
 			if(param){
 				gfnAjaxStatus("/main/mainPagination.do", param, (e)=>{
-					console.log(e);
+					$('.mainPagination').html('');
+					$('.mainPagination').append(e);
 				})
 			}else{
 				param = {};

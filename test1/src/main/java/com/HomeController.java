@@ -1,15 +1,15 @@
 package com;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.main.service.mainService;
 
 /**
  * Handles requests for the application home page.
@@ -18,15 +18,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/home")
 public class HomeController {
 	
+	@Autowired
+	private mainService service;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/redriect.do")
-	public String reDriect() {
+	public ModelAndView reDriect() {
+		ModelAndView mv = new ModelAndView();
+		/* 메인 슬라이드 이미지 조회 */
+		List<?> result = service.selectMiddleThemeList();
 		
-		return "/main/main";
+		mv.addObject("mainResultList", result);
+		mv.setViewName("/main/main");
+		return mv;
 	}
 	
 }

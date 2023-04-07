@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.main.mapper.mainMapper">
+	<select id="selectThemeList" parameterType="com.main.dvo.mainDVO" resultType ="com.main.dvo.mainDVO">
+		SELECT 
+			A.CAFE_NM, A.CAFE_THEME_NM, A.THEME_TIME, 
+	        (SELECT LGRP_NM
+	        FROM CMP_CODE_MAPPING
+	        WHERE SGRP_CD = 'THEME_CATEGORY'
+	        AND LGRP_CD = A.THEME_GENRE) AS THEME_GENRE,
+	        (CASE WHEN A.THEME_DIFF = 1 THEN '★☆☆☆☆'
+	             WHEN A.THEME_DIFF  = 2 THEN '★★☆☆☆'
+	             WHEN A.THEME_DIFF  = 3 THEN '★★★☆☆'
+	             WHEN A.THEME_DIFF  = 4 THEN '★★★★☆'
+	             ELSE '★★★★★'
+	             END) AS THEME_DIFF ,
+	            (SELECT LGRP_NM
+	            FROM CMP_CODE_MAPPING
+	            WHERE SGRP_CD = 'THEME_ACTIVITY'
+	            AND LGRP_CD = A.THEME_ACT) AS THEME_ACT,
+	            B.URL AS CAFE_LINK,
+	            A.IMAGE_PATH
+		FROM CAFE_THEME A
+		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
+		WHERE 1=1
+		AND A.IMAGE_PATH IS NOT NULL
+		<if test="keyWord !='' and keyWord != null">
+			AND ( REPLACE(A.CAFE_NM, ' ', '') LIKE '%' || #{keyWord} || '%' OR REPLACE(A.CAFE_THEME_NM,' ','') LIKE '%' || #{keyWord} || '%')
+		</if>
+		
+		<if test="themePeoTwo !='' and themePeoTwo != null">
+			AND A.THEME_PEO_TWO = 'T'
+		</if>
+		<if test="themePeoThree !='' and themePeoThree != null">
+			AND A.THEME_PEO_TRHEE = 'T'
+		</if>
+		<if test="themePeoFour !='' and themePeoFour != null">
+			AND A.THEME_PEO_FOUR = 'T'
+		</if>
+		<if test="themePeoFivewo !='' and themePeoFivewo != null">
+			AND A.THEME_PEO_FIVE = 'T'
+		</if>
+		<if test="location !=null and location.length != 0">
+			AND B.SGG_CD IN
+			<foreach collection="location" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="theme != null and theme.length != 0">
+			AND A.THEME_GENRE IN
+			<foreach collection="theme" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="category !=null and category.length != 0">
+			AND A.THEME_CATE IN
+			<foreach collection="category" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="diff !=null and diff.length != 0">
+			AND A.THEME_DIFF IN
+			<foreach collection="diff" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="activity !=null and activity.length != 0">
+			AND A.THEME_ACT IN
+			<foreach collection="activity" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		ORDER BY CAFE_NM, CAFE_THEME_NM
+		OFFSET #{pageIndex} ROWS FETCH NEXT 5 ROWS ONLY
+	</select>
+	
+	<select id="selectThemeListCount" parameterType="com.main.dvo.mainDVO" resultType ="int">
+		SELECT COUNT(*) AS TOTAL_COUNT
+		FROM
+			(SELECT 
+			A.CAFE_NM, A.CAFE_THEME_NM, A.THEME_TIME, 
+	        (SELECT LGRP_NM
+	        FROM CMP_CODE_MAPPING
+	        WHERE SGRP_CD = 'THEME_CATEGORY'
+	        AND LGRP_CD = A.THEME_GENRE) AS THEME_GENRE,
+	        (CASE WHEN A.THEME_DIFF = 1 THEN '★☆☆☆☆'
+	             WHEN A.THEME_DIFF  = 2 THEN '★★☆☆☆'
+	             WHEN A.THEME_DIFF  = 3 THEN '★★★☆☆'
+	             WHEN A.THEME_DIFF  = 4 THEN '★★★★☆'
+	             ELSE '★★★★★'
+	             END) AS THEME_DIFF ,
+	            (SELECT LGRP_NM
+	            FROM CMP_CODE_MAPPING
+	            WHERE SGRP_CD = 'THEME_ACTIVITY'
+	            AND LGRP_CD = A.THEME_ACT) AS THEME_ACT,
+	            B.URL AS CAFE_LINK,
+	            A.IMAGE_PATH
+		FROM CAFE_THEME A
+		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
+		WHERE 1=1
+		AND A.IMAGE_PATH IS NOT NULL
+		<if test="keyWord !='' and keyWord != null">
+			AND ( REPLACE(A.CAFE_NM, ' ', '') LIKE '%' || #{keyWord} || '%' OR REPLACE(A.CAFE_THEME_NM,' ','') LIKE '%' || #{keyWord} || '%')
+		</if>
+		
+		<if test="themePeoTwo !='' and themePeoTwo != null">
+			AND A.THEME_PEO_TWO = 'T'
+		</if>
+		<if test="themePeoThree !='' and themePeoThree != null">
+			AND A.THEME_PEO_TRHEE = 'T'
+		</if>
+		<if test="themePeoFour !='' and themePeoFour != null">
+			AND A.THEME_PEO_FOUR = 'T'
+		</if>
+		<if test="themePeoFivewo !='' and themePeoFivewo != null">
+			AND A.THEME_PEO_FIVE = 'T'
+		</if>
+		<if test="location !=null and location.length != 0">
+			AND B.SGG_CD IN
+			<foreach collection="location" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="theme != null and theme.length != 0">
+			AND A.THEME_GENRE IN
+			<foreach collection="theme" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="category !=null and category.length != 0">
+			AND A.THEME_CATE IN
+			<foreach collection="category" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="diff !=null and diff.length != 0">
+			AND A.THEME_DIFF IN
+			<foreach collection="diff" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		
+		<if test="activity !=null and activity.length != 0">
+			AND A.THEME_ACT IN
+			<foreach collection="activity" item="item" index="index"  open="(" close=")" separator=",">
+		      	#{item}
+		    </foreach>
+		</if>
+		ORDER BY CAFE_NM, CAFE_THEME_NM
+		)
+	</select>
+	
+	<select id="selectMiddleThemeList" resultType ="com.main.dvo.mainDVO">
+		SELECT A.IMAGE_PATH, B.URL AS CAFE_LINK, A.CAFE_THEME_NM
+		FROM CAFE_THEME A
+		      INNER JOIN CAFE_CATEGORY B ON A.CAFE_CD = B.CAFE_CD
+		WHERE A.CAFE_CD = 'CC89'	
+	</select>
+
+</mapper>

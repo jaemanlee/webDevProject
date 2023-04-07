@@ -1,5 +1,13 @@
 package com.main.mapper;
 
-public interface mainMapper {
+import java.util.List;
 
+import com.main.dvo.mainDVO;
+
+public interface mainMapper {
+	List<?> selectThemeList(mainDVO dvo);
+	
+	List<?> selectMiddleThemeList();
+	
+	int selectThemeListCount(mainDVO dvo);
 }

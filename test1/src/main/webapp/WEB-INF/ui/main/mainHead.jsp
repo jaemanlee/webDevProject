@@ -74,6 +74,7 @@
         			$('#mainHeder div:eq(1) p').html(e.userName + $('#mainHeder div:eq(1) p').html());
     			}
     		}) 
+    		console.log(document.cookie);
     	}
     	
     	/* 로그아웃 ajax */

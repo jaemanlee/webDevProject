@@ -1,5 +1,7 @@
 package com.join.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,13 @@ public class joinServiceImpl implements joinService {
 		
 		return i;
 		
+	}
+
+	@Override
+	public List<joinDVO> selectUserList() {
+		// TODO Auto-generated method stub
+		
+		return joinMapper.selectUserList();
 	}
 
 }

@@ -13,6 +13,10 @@
  	  #{address},
  	  #{age}
  	)
- 
  </insert>
+ 
+ <select id="selectUserList" parameterType="com.join.dvo.joinDVO" resultType="com.join.dvo.joinDVO">
+ 	SELECT ID
+ 	FROM CMP_USER_INFO
+ </select>
 </mapper>
